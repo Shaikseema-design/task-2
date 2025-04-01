@@ -1,0 +1,127 @@
+.teachers-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 64px); /* Adjust for toolbar */
+  padding: 40px;
+  background: linear-gradient(135deg, #fce4ec 0%, #b3e5fc 50%, #e1f5fe 100%); /* Light pink to sky blue */
+  animation: gradientShift 12s ease infinite;
+  background-size: 200% 200%;
+}
+
+.teachers-card {
+  width: 100%;
+  max-width: 1000px; /* Spacious card */
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255, 245, 247, 0.95); /* Light pink with opacity */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15), 0 0 30px rgba(179, 229, 252, 0.5); /* Sky blue glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2), 0 0 40px rgba(179, 229, 252, 0.7);
+  }
+}
+
+mat-card-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+mat-card-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: rgb(236, 65, 122); 
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Georgia', serif; 
+  animation: fadeIn 1s ease-in;
+}
+
+mat-card-content {
+  padding: 0 20px;
+}
+
+.add-button {
+  margin-bottom: 30px;
+  padding: 0 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 25px;
+  background-color: #f06292; 
+  color: #e1f5fe; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: 'Georgia', serif;
+  &:hover {
+    transform: translateY(-3px);
+    background-color: #f48fb1; 
+    box-shadow: 0 6px 18px rgba(240, 98, 146, 0.6);
+  }
+}
+
+mat-table {
+  width: 100%;
+  background: rgba(255, 245, 247, 0.95); 
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: fadeIn 1.2s ease-in;
+}
+
+mat-header-cell {
+  background: #b3e5fc; 
+  color: #ec407a;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 15px;
+  font-family: 'Georgia', serif;
+}
+
+mat-cell {
+  color: #0288d1;
+  padding: 15px;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+mat-row {
+  transition: background-color 0.3s ease;
+  &:hover {
+    background: rgba(179, 229, 252, 0.2); 
+  }
+}
+
+mat-icon-button {
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &[color="primary"] {
+    color: #f06292; /* Light pink for edit */
+    &:hover {
+      color: #f48fb1; 
+    }
+  }
+  &[color="warn"] {
+    color: #d81b60; /* Vibrant pink for delete */
+    &:hover {
+      color: #ec407a; 
+    }
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

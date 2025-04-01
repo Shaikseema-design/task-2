@@ -1,0 +1,162 @@
+.students-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 64px); /* Adjust for toolbar height */
+    padding: 30px;
+    background: linear-gradient(135deg, #7dd6d3 0%, #f4c1ef 50%, #F5E8C7 100%);
+    animation: gradientShift 10s ease infinite;
+    background-size: 200% 200%;
+  }
+  
+  .students-card {
+    width: 100%;
+    max-width: 1000px;
+    min-height: 600px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255, 245, 247, 0.95); /* Light pink with opacity */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15), 0 0 30px rgba(179, 229, 252, 0.5); /* Sky blue glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2), 0 0 40px rgba(179, 229, 252, 0.7);
+    }
+  }
+  
+  .title-text {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #df84d6; /* Deep pink for contrast */
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 4px rgba(244, 242, 242, 0.1);
+    animation: fadeIn 1s ease-in;
+  }
+  
+  .add-button {
+    margin-bottom: 30px;
+    padding: 0 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 25px;
+    background-color: #f06292; /* Light pink */
+    color: #e1f5fe; /* Light sky blue text */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(240, 98, 146, 0.6);
+      background-color: #f48fb1; /* Lighter pink */
+    }
+  }
+  
+  .add-form, .edit-form {
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif; /* Classical typeface */
+  }
+  
+  mat-form-field {
+    mat-label {
+      color: #1f1f16; /* Deep pink */
+      font-weight: 500;
+    }
+    input {
+      color: #0277bd; /* Darker sky blue */
+    }
+  }
+  
+  mat-error {
+    font-size: 0.9rem;
+    color: #d81b60; /* Vibrant pink for errors */
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    button {
+      padding: 0 25px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 25px;
+    }
+    button[color="primary"] {
+      background-color: #f06292;
+      color: #e1f5fe;
+      &:hover {
+        background-color: #f48fb1;
+        box-shadow: 0 6px 18px rgba(240, 98, 146, 0.6);
+      }
+    }
+    button[color="warn"] {
+      background-color: #d81b60;
+      color: white;
+      &:hover {
+        background-color: #ec407a;
+        box-shadow: 0 6px 18px rgba(216, 27, 96, 0.6);
+      }
+    }
+  }
+  
+  .student-table {
+    width: 100%;
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  mat-header-cell {
+    background: #b3e5fc; /* Light sky blue */
+    color: #3153d0; /* Deep pink */
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 15px;
+  }
+  
+  mat-cell {
+    color: #0277bd; /* Darker sky blue */
+    padding: 15px;
+    font-family: 'Georgia', serif;
+  }
+  
+  .action-cell {
+    display: flex;
+    gap: 10px;
+  }
+  
+  mat-icon-button {
+    transition: transform 0.2s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &[color="primary"] {
+      color: #f06292; /* Light pink */
+    }
+    &[color="warn"] {
+      color: #d81b60; /* Vibrant pink */
+    }
+    a {
+      color: #0288d1; /* Deeper sky blue */
+    }
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }

@@ -1,0 +1,27 @@
+<div class="task-detail-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ task?.title }}</mat-card-title>
+        <mat-card-subtitle>Task Details</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngIf="task; else notFound">
+          <p><strong>Description:</strong> {{ task.description || 'No description provided' }}</p>
+          <p><strong>Status:</strong> {{ task.status }}</p>
+          <p><strong>Due Date:</strong> {{ task.dueDate | date }}</p>
+          
+        </div>
+        <ng-template #notFound>
+          <p>Task not found.</p>
+        </ng-template>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [routerLink]="['/edit-task', studentId, task?.id]">
+          Edit Task
+        </button>
+        <button mat-raised-button color="warn" [routerLink]="['/student-tasks', studentId]">
+          Back to List
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>

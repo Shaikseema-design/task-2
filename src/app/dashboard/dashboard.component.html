@@ -1,0 +1,35 @@
+<!-- Container for the dashboard-->
+<div class="dashboard-container">
+    <mat-card>
+      <!-- Header section of the card -->  
+      <mat-card-header>
+      <!-- Title of the card, dynamically displays the user's name if available -->  
+        <mat-card-title>Dashboard for {{ user?.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="stats">
+        <!-- First stat card for pending tasks -->    
+          <mat-card class="stat-card">
+        <!-- Title of the stat card indicating pending tasks -->    
+            <mat-card-title>Pending Tasks</mat-card-title>
+        <!-- Content displaying the number of pending tasks -->    
+            <mat-card-content>{{ pendingTasks }}</mat-card-content>
+          </mat-card>
+        <!-- Second stat card for in-progress tasks -->  
+          <mat-card class="stat-card">
+        <!-- Title of the stat card indicating in-progress tasks -->    
+            <mat-card-title>In Progress Tasks</mat-card-title>
+        <!-- Content displaying the number of in-progress tasks -->
+            <mat-card-content>{{ inProgressTasks }}</mat-card-content>
+          </mat-card>
+        <!-- Third stat card for completed tasks -->  
+          <mat-card class="stat-card">
+        <!-- Title of the stat card indicating completed tasks -->    
+            <mat-card-title>Completed Tasks</mat-card-title>
+        <!-- Content displaying the number of completed tasks -->    
+            <mat-card-content>{{ completedTasks }}</mat-card-content>
+          </mat-card>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>

@@ -1,0 +1,31 @@
+<!--container for the login form-->
+<div class="login-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title><!--login page title-->
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+         <!--material from field for username--> 
+            <mat-form-field appearance="outline">
+        <!-- Label for the username input field -->        
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username">
+        <!-- Error message displayed if username is required but not provided -->    
+            <mat-error *ngIf="loginForm.get('username')?.hasError('required')">Username is required</mat-error>
+          </mat-form-field>
+        <!-- Material form field for password-->  
+          <mat-form-field appearance="outline">
+        <!-- Label for the password input field -->
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password">
+        <!-- Error message displayed if password is required but not provided -->    
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+          <a mat-button routerLink="/register">Register</a>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>

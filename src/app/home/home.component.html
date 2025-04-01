@@ -1,0 +1,35 @@
+<!-- Container for the home page-->
+<div class="home-container">
+    <mat-card class="welcome-card">
+      <mat-card-header>
+        <!-- Title of the card, dynamically greets the current user by name if logged in -->
+        <mat-card-title>Welcome{{ currentUser ? ', ' + currentUser.name : '' }}!</mat-card-title>
+        <mat-card-subtitle>to the School Task Management App</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>This app helps you manage students, teachers, and their tasks efficiently.</p>
+        <div class="features">
+          <mat-list>
+            <mat-list-item>
+              <mat-icon matListIcon>people</mat-icon>
+              <span matLine>Manage Students</span>
+              <!-- Button to navigate to the students page -->
+              <button mat-button color="primary" routerLink="/students">Go to Students</button>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon matListIcon>school</mat-icon>
+              <span matLine>Manage Teachers</span>
+              <!-- Button to navigate to the teachers page -->
+              <button mat-button color="primary" routerLink="/teachers">Go to Teachers</button>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon matListIcon>assignment</mat-icon>
+              <span matLine>Task Management</span>
+              <!-- Button to navigate to the students page-->
+              <button mat-button color="primary" routerLink="/students">View Tasks</button>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>

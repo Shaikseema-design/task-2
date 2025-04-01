@@ -1,0 +1,167 @@
+<div class="students-container">
+    <mat-card class="students-card">
+      <mat-card-header>
+        <mat-card-title>Students</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-raised-button color="primary" (click)="toggleAddForm()" class="add-button">
+          {{ showAddForm ? 'Cancel' : 'Add Student' }}
+        </button>
+  
+        <!-- Add Student Form -->
+        <div *ngIf="showAddForm" class="add-form">
+          <form [formGroup]="addStudentForm" (ngSubmit)="addStudent()">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name" required>
+              <mat-error *ngIf="addStudentForm.get('name')?.hasError('required')">
+                Name is required
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" formControlName="email" required>
+              <mat-error *ngIf="addStudentForm.get('email')?.hasError('required')">
+                Email is required
+              </mat-error>
+              <mat-error *ngIf="addStudentForm.get('email')?.hasError('email')">
+                Please enter a valid email
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Phone</mat-label>
+              <input matInput formControlName="phone" required>
+              <mat-error *ngIf="addStudentForm.get('phone')?.hasError('required')">
+                Phone is required
+              </mat-error>
+              <mat-error *ngIf="addStudentForm.get('phone')?.hasError('pattern')">
+                Please enter a valid 10-digit phone number
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="username" required>
+              <mat-error *ngIf="addStudentForm.get('username')?.hasError('required')">
+                Username is required
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password" required>
+              <mat-error *ngIf="addStudentForm.get('password')?.hasError('required')">
+                Password is required
+              </mat-error>
+              <mat-error *ngIf="addStudentForm.get('password')?.hasError('minlength')">
+                Password must be at least 6 characters
+              </mat-error>
+            </mat-form-field>
+  
+            <button mat-raised-button color="primary" type="submit" [disabled]="addStudentForm.invalid">
+              Save Student
+            </button>
+          </form>
+        </div>
+  
+        <!-- Edit Student Form -->
+        <div *ngIf="showEditForm" class="edit-form">
+          <form [formGroup]="editStudentForm" (ngSubmit)="editStudent()">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name" required>
+              <mat-error *ngIf="editStudentForm.get('name')?.hasError('required')">
+                Name is required
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" formControlName="email" required>
+              <mat-error *ngIf="editStudentForm.get('email')?.hasError('required')">
+                Email is required
+              </mat-error>
+              <mat-error *ngIf="editStudentForm.get('email')?.hasError('email')">
+                Please enter a valid email
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Phone</mat-label>
+              <input matInput formControlName="phone" required>
+              <mat-error *ngIf="editStudentForm.get('phone')?.hasError('required')">
+                Phone is required
+              </mat-error>
+              <mat-error *ngIf="editStudentForm.get('phone')?.hasError('pattern')">
+                Please enter a valid 10-digit phone number
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="username" required>
+              <mat-error *ngIf="editStudentForm.get('username')?.hasError('required')">
+                Username is required
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password" required>
+              <mat-error *ngIf="editStudentForm.get('password')?.hasError('required')">
+                Password is required
+              </mat-error>
+              <mat-error *ngIf="editStudentForm.get('password')?.hasError('minlength')">
+                Password must be at least 6 characters
+              </mat-error>
+            </mat-form-field>
+  
+            <button mat-raised-button color="primary" type="submit" [disabled]="editStudentForm.invalid">
+              Update Student
+            </button>
+            <button mat-raised-button color="warn" (click)="toggleEditForm(null)" class="cancel-button">
+              Cancel
+            </button>
+          </form>
+        </div>
+  
+        <!-- Student List -->
+        <mat-table [dataSource]="students" class="mat-elevation-z2">
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef id="header">Name</mat-header-cell>
+            <mat-cell *matCellDef="let student">{{ student.name }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef id="header">Email</mat-header-cell>
+            <mat-cell *matCellDef="let student">{{ student.email }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="phone">
+            <mat-header-cell *matHeaderCellDef>Phone</mat-header-cell>
+            <mat-cell *matCellDef="let student">{{ student.phone }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+            <mat-cell *matCellDef="let student">
+              <button mat-icon-button color="primary" (click)="toggleEditForm(student)" title="Edit">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteStudent(student.id!)" title="Delete">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <a mat-icon-button [routerLink]="['/student-tasks', student.id]" title="View Tasks">
+                <mat-icon>visibility</mat-icon>
+              </a>
+            </mat-cell>
+          </ng-container>
+  
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </mat-card-content>
+    </mat-card>
+  </div>
