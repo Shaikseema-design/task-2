@@ -27,3 +27,8 @@ The School Task App is a web-based application designed to help manage student t
 - **Build Tool:** Angular CLI
 - **Package Manager:** npm
 - **Runtime Environment:** Node.js (v16.x or later)
+
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Shaikseema-design/task-2.git
