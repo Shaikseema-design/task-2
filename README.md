@@ -1,31 +1,25 @@
-# SchoolTaskApp
+# School Task App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+## Overview
 
+The School Task App is a web-based application designed to help manage student tasks efficiently. It provides a user-friendly interface for viewing task details, creating new tasks, and editing existing ones.
 
-https://github.com/user-attachments/assets/74740924-f262-4a93-8c4f-6e5de92718ec
+## Features
 
+- **Task Details View:** Display detailed information about individual tasks for a specific student.
+- **Task Creation:** Add new tasks with required fields like title, status, and due date.
+- **Task Editing:** Modify existing tasks with a pre-populated form.
+- **Form Validation:** Ensure data integrity with required field validation.
+- **User Feedback:** Provide notifications via snackbar for successful actions or errors.
+- **Responsive Routing:** Navigate seamlessly between task list, detail, and form views.
 
-## Development server
+## Tech Stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **Frontend Framework:** Angular (v17.x or later)
+- **UI Components:** Angular Material (for snackbar and form styling)
+- **Form Handling:** Angular Reactive Forms
+- **Routing:** Angular Router
+- **Language:** TypeScript
+- **Build Tool:** Angular CLI
+- **Package Manager:** npm
+- **Runtime Environment:** Node.js (v16.x or later)
